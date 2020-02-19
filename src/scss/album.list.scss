@@ -1,0 +1,17 @@
+.album-list__wrapper {
+    display: flex;
+    margin: 0 auto 0 auto;
+    flex-flow: row wrap;
+    max-width: 60%;
+    border: black 1px solid;
+}
+
+.album__wrapper {
+    display: flex;
+    flex-flow: column;
+    margin: 0 10px 10px 10px;
+
+    p {
+        max-width: 170px;
+    }
+}
