@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Album from "../components/album";
 import '../scss/album.list.scss'
 
 export default class AlbumList extends React.Component {
@@ -7,7 +8,13 @@ export default class AlbumList extends React.Component {
         super(props);
         this.state = {
             rawAlbumArray: [],
-        }
+            inputValue: '',
+        };
+        this.changeHandler = this.changeHandler.bind(this);
+    }
+
+    changeHandler(event) {
+        this.setState({inputValue: event.target.value});
     }
 
     componentDidMount() {
@@ -17,20 +24,31 @@ export default class AlbumList extends React.Component {
             })
     }
 
+
     render() {
         return (
-            <div className="album-list__wrapper">
-                {
-                    this.state.rawAlbumArray.map((albumObj) => {
-                        return <div className="album__wrapper">
-                            <img src={albumObj["im:image"][2].label} alt=""/>
-                            <p>{albumObj.title.label}</p>
-                        </div>
-                    })
-                }
+            <div>
+                <input className="album-list__input" type="text" value={this.state.inputValue} onChange={this.changeHandler} />
+                <div className="album-list__wrapper">
+                    {
+                        this.state.rawAlbumArray.map((albumObj, index) => {
+                            return <Album
+                                ranking={ index + 1 }
+                                imgSrc={ albumObj["im:image"][2].label }
+                                name={ albumObj["im:name"].label }
+                                artist={ albumObj["im:artist"].label }
+                                price={ albumObj["im:price"].label }
+                                itemCount={ albumObj["im:itemCount"].label }
+                                genre={ albumObj.category.attributes.label }
+                                releaseDate={ albumObj["im:releaseDate"].label }
+                            />
+                        })
+                    }
+                </div>
             </div>
         )
     }
+
 
 }
 

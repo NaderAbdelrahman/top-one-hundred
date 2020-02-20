@@ -1,17 +1,17 @@
+.album-list__input {
+    display: block;
+    margin: 15px auto 0 auto;
+    height: 25px;
+    width: 50%;
+    font-family: Palatino sans-serif;
+    font-size: 1.2rem;
+    padding-left: 5px;
+}
+
 .album-list__wrapper {
     display: flex;
     margin: 0 auto 0 auto;
     flex-flow: row wrap;
-    max-width: 60%;
-    border: black 1px solid;
-}
-
-.album__wrapper {
-    display: flex;
-    flex-flow: column;
-    margin: 0 10px 10px 10px;
-
-    p {
-        max-width: 170px;
-    }
+    justify-content: space-around;
+    max-width: 70%;
 }
