@@ -26,12 +26,15 @@ export default class AlbumList extends React.Component {
 
 
     render() {
+        let filteredArray = this.state.rawAlbumArray.filter((albumObj) => {
+            return albumObj["im:name"].label.toLowerCase().indexOf(this.state.inputValue) !== -1
+        });
         return (
             <div>
                 <input className="album-list__input" type="text" value={this.state.inputValue} onChange={this.changeHandler} />
                 <div className="album-list__wrapper">
                     {
-                        this.state.rawAlbumArray.map((albumObj, index) => {
+                        filteredArray.map((albumObj, index) => {
                             return <Album
                                 ranking={ index + 1 }
                                 imgSrc={ albumObj["im:image"][2].label }
