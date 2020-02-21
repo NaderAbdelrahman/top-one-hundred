@@ -31,7 +31,13 @@ export default class AlbumList extends React.Component {
         });
         return (
             <div>
-                <input className="album-list__input" type="text" value={this.state.inputValue} onChange={this.changeHandler} />
+                <input
+                    className="album-list__input"
+                    type="text"
+                    value={this.state.inputValue}
+                    onChange={this.changeHandler}
+                    placeholder="Begin entering name of album to search"
+                />
                 <div className="album-list__wrapper">
                     {
                         filteredArray.map((albumObj, index) => {
