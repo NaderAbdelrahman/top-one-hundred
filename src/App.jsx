@@ -1,16 +1,13 @@
 import React from 'react';
-
-// I am using HashRouter instead of BrowserRouter to work with github pages (github.io)
-import { HashRouter, Route } from 'react-router-dom'
-
+import { BrowserRouter, Route } from 'react-router-dom'
 import AlbumList from "./screens/album.list";
 import './scss/app.scss'
 
 function App() {
   return (
-      <HashRouter>
+      <BrowserRouter>
         <Route exact path="/" component={AlbumList}/>
-      </HashRouter>
+      </BrowserRouter>
   );
 }
 
